@@ -37,7 +37,7 @@ All experiments used in the paper are collected in the bash files in the `exps` 
 
 
 ## Get attack logs
-The logs of all attacks can be found here in the `logs` folder. The logs also include all intermediate and final adversarial suffixes.
+The logs of all attacks can be found here in the `attack_logs` folder. The logs also include all intermediate and final adversarial suffixes.
 
 
 ## Trojan detection code
