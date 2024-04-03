@@ -2,7 +2,7 @@
 
 **Maksym Andriushchenko (EPFL), Francesco Croce (EPFL), Nicolas Flammarion (EPFL)**
 
-**Paper:** [https://arxiv.org/abs/???](https://arxiv.org/abs/???)
+**Paper:** [https://arxiv.org/abs/2404.02151](https://arxiv.org/abs/2404.02151)
 
 <!-- <p align="center"><img src="images/title_abstract.png" width="900" /></p> -->
 
@@ -50,7 +50,7 @@ If you find this work useful in your own research, please consider citing it:
 @article{andriushchenko2024jailbreaking,
       title={Jailbreaking Leading Safety-Aligned LLMs with Simple Adaptive Attacks}, 
       author={Andriushchenko, Maksym and Croce, Francesco and Flammarion, Nicolas},
-      journal={???},
+      journal={arXiv preprint arXiv:2404.02151},
       year={2024}
 }
 ```
