@@ -79,10 +79,6 @@ def load_indiv_model(model_name, device=None):
     
     if 'gpt' in model_name or 'together' in model_name:
         lm = GPT(model_name)
-    elif model_name in ["claude-2", "claude-instant-1"]:
-        lm = Claude(model_name)
-    elif model_name in ["palm-2"]:
-        lm = PaLM(model_name)
     else:
         model = AutoModelForCausalLM.from_pretrained(
                 model_path, 
