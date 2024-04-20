@@ -7,6 +7,7 @@
 <!-- <p align="center"><img src="images/title_abstract.png" width="900" /></p> -->
 
 ## Updates
+- We've fixed some inconsistencies with the chat templates in this commit https://github.com/tml-epfl/llm-adaptive-attacks/commit/eeb7424248998d63dce5cc09d825a51a3842a127 from 20 April. Please use the latest version of the codebase to reproduce our results.
 - We've discovered that FastChat doesn't insert anymore the system prompt for Llama-2-Chat in the latest version (`0.2.36`). We note that we performed our experiments with version `0.2.23` where _the system prompt is inserted_. Thus, to reproduce our experiments, it's important to use the older version of FastChat (i.e., `pip install fschat==0.2.23`). The full story is here: https://github.com/tml-epfl/llm-adaptive-attacks/issues/2 (thanks to Zhaorui Yang for reporting this issue).
 
 ## Abstract
