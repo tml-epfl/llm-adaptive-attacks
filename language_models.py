@@ -90,6 +90,8 @@ class HuggingFace:
         self.pos_to_token_dict = {v: k.replace('▁', ' ') for k, v in self.tokenizer.get_vocab().items()}
         # self.pos_to_token_dict = {v: k for k, v in self.tokenizer.get_vocab().items()}
         self.eos_token_ids = [self.tokenizer.eos_token_id]
+        if 'llama3' in self.model_name.lower():
+            self.eos_token_ids.append(self.tokenizer.convert_tokens_to_ids("<|eot_id|>"))
         self.pad_token_id = self.tokenizer.pad_token_id
 
     def generate(self, 

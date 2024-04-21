@@ -7,8 +7,9 @@
 <!-- <p align="center"><img src="images/title_abstract.png" width="900" /></p> -->
 
 ## Updates
-- We've fixed some inconsistencies with the chat templates in this commit https://github.com/tml-epfl/llm-adaptive-attacks/commit/eeb7424248998d63dce5cc09d825a51a3842a127 from 20 April. Please use the latest version of the codebase to reproduce our results.
-- We've discovered that FastChat doesn't insert anymore the system prompt for Llama-2-Chat in the latest version (`0.2.36`). We note that we performed our experiments with version `0.2.23` where _the system prompt is inserted_. Thus, to reproduce our experiments, it's important to use the older version of FastChat (i.e., `pip install fschat==0.2.23`). The full story is here: https://github.com/tml-epfl/llm-adaptive-attacks/issues/2 (thanks to Zhaorui Yang for reporting this issue).
+- **21 April 2024**: We've added code and results for Llama-3-8B (100% attack success rate).
+- **20 April 2024**: We've fixed some inconsistencies with the chat templates in this commit https://github.com/tml-epfl/llm-adaptive-attacks/commit/eeb7424248998d63dce5cc09d825a51a3842a127 from 20 April. Please use the latest version of the codebase to reproduce our results.
+- **6 April 2024**: We've discovered that FastChat doesn't insert anymore the system prompt for Llama-2-Chat in the latest version (`0.2.36`). We note that we performed our experiments with version `0.2.23` where _the system prompt is inserted_. Thus, to reproduce our experiments, it's important to use the older version of FastChat (i.e., `pip install fschat==0.2.23`). The full story is here: https://github.com/tml-epfl/llm-adaptive-attacks/issues/2 (thanks to Zhaorui Yang for reporting this issue).
 
 ## Abstract
 We show that even the most recent safety-aligned LLMs are not robust to simple adaptive jailbreaking attacks. First, we demonstrate how to successfully leverage access to logprobs for jailbreaking: we initially design an adversarial prompt template (sometimes adapted to the target LLM), and then we apply random search on a suffix to maximize the target logprob (e.g., of the token ``Sure''), potentially with multiple restarts. In this way, we achieve nearly 100\% attack success rate---according to GPT-4 as a judge---on GPT-3.5/4, Llama-2-Chat-7B/13B/70B, Gemma-7B, and R2D2 from HarmBench that was adversarially trained against the GCG attack. We also show how to jailbreak all Claude models---that do not expose logprobs---via either a transfer or prefilling attack with 100\% success rate. In addition, we show how to use random search on a restricted set of tokens for finding trojan strings in poisoned models---a task that shares many similarities with jailbreaking---which is the algorithm that brought us the first place in the SaTML'24 Trojan Detection Competition. The common theme behind these attacks is that adaptivity is crucial: different models are vulnerable to different prompting templates (e.g., R2D2 is very sensitive to in-context learning prompts), some models have unique vulnerabilities based on their APIs (e.g., prefilling for Claude), and in some settings it is crucial to restrict the token search space based on prior knowledge (e.g., for trojan detection).
@@ -17,6 +18,10 @@ We show that even the most recent safety-aligned LLMs are not robust to simple a
 ## Main results
 The table below summarizes our main evaluations:
 <p align="center"><img src="images/main_table.png" width="900" /></p>
+
+The key element for query efficiency and high success rates for many models is *self-transfer* (i.e., reusing a successful adversarial string found by random search *on a single behavior* as an initialization for all behaviors - see the `adv_init` variable in `main.py`) as clearly evidenced by these plots:
+<p align="center"><img src="images/llamas_gemma_logprobs.jpg" width="400" /><img src="images/llamas_gemma_asr.jpg" width="393" /></p>
+
 
 
 ## Getting started
