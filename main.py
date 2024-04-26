@@ -36,9 +36,9 @@ def main(args):
     substitution_set = string.digits + string.ascii_letters + string.punctuation + ' '
     if args.prompt_template == 'icl_one_shot':  
         target_token = 'Step'  
-    elif 'llama3' in args.target_model:  
-        # llama3 prefers to output '<text>\nSure' instead of just 'Sure' as all other models
-        target_token = '<'  
+    elif 'llama3' in args.target_model or 'phi3' in args.target_model:  
+        # llama3 and phi3 prefer to output '<text>\nSure' instead of just 'Sure' as all other models
+        target_token = '<' 
     else:
         # in all other cases, we just maximize the logprob of 'Sure'
         target_token = 'Sure'  
