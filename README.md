@@ -7,6 +7,7 @@
 <!-- <p align="center"><img src="images/title_abstract.png" width="900" /></p> -->
 
 ## Updates
+- **4 May 2024**: We've exported most of our jailbreak artifacts (see the `jailbreak_artifacts` folder) in a convenient form following the [JailbreakBench](https://github.com/JailbreakBench/jailbreakbench) [format](https://github.com/JailbreakBench/artifacts).
 - **26 April 2024**: We've added code and results for Phi-3-Mini (100% attack success rate).
 - **21 April 2024**: We've added code and results for Llama-3-8B (100% attack success rate).
 - **20 April 2024**: We've fixed some inconsistencies with the chat templates in this commit https://github.com/tml-epfl/llm-adaptive-attacks/commit/eeb7424248998d63dce5cc09d825a51a3842a127 from 20 April. Please use the latest version of the codebase to reproduce our results.
