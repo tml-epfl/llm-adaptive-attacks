@@ -52,14 +52,20 @@ class TargetLM():
                     conv.system_template = '{system_message}'  
                 if 'phi3' in self.model_name:
                     conv.system_message = 'You are a helpful AI assistant.'
+                if "llama2" in self.model_name:
+                    prompt = prompt + ' '
                 conv.append_message(conv.roles[0], prompt)
 
                 if "gpt" in self.model_name:
                     full_prompts.append(conv.to_openai_api_messages())
                 # older models
-                elif "vicuna" in self.model_name or "llama2" in self.model_name:
+                elif "vicuna" in self.model_name:
                     conv.append_message(conv.roles[1], None) 
-                    full_prompts.append(conv.get_prompt())
+                    full_prompts.append(formatted_prompt)
+                elif "llama2" in self.model_name:
+                    conv.append_message(conv.roles[1], None) 
+                    formatted_prompt = '<s>' + conv.get_prompt()
+                    full_prompts.append(formatted_prompt)
                 # newer models
                 elif "r2d2" in self.model_name or "gemma" in self.model_name or "mistral" in self.model_name or "llama3" in self.model_name or "phi3" in self.model_name: 
                     conv_list_dicts = conv.to_openai_api_messages()
