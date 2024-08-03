@@ -61,6 +61,7 @@ class TargetLM():
                 # older models
                 elif "vicuna" in self.model_name:
                     conv.append_message(conv.roles[1], None) 
+                    formatted_prompt = conv.get_prompt()
                     full_prompts.append(formatted_prompt)
                 elif "llama2" in self.model_name:
                     conv.append_message(conv.roles[1], None) 
