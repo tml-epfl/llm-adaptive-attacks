@@ -1,1 +1,4 @@
 __pycache__/
+.DS_Store
+.env
+exps_new.sh

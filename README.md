@@ -7,6 +7,7 @@
 <!-- <p align="center"><img src="images/title_abstract.png" width="900" /></p> -->
 
 ## Updates
+- **20 September 2024**: We've added code and logs for Claude Sonnet 3.5 (100% attack success rate with the prompt template + prefilling).
 - **15 June 2024**: We've added jailbreak artifacts for Nemotron-4-340B-Instruct (100% attack success rate with our prompt template, even without any random search or random restarts).
 - **4 May 2024**: We've exported most of our jailbreak artifacts (see the `jailbreak_artifacts` folder) in a convenient form following the [JailbreakBench](https://github.com/JailbreakBench/jailbreakbench) [format](https://github.com/JailbreakBench/artifacts).
 - **26 April 2024**: We've added code and jailbreak artifacts for Phi-3-Mini (100% attack success rate).

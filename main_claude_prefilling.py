@@ -61,11 +61,11 @@ class Claude:
 def main(args):
     targetLM = Claude(args.target_model)
 
-    harmful_behaviors_df = pd.read_csv('../harmful_behaviors/harmful_behaviors_pair.csv')[:args.n_behaviors]
+    harmful_behaviors_df = pd.read_csv('harmful_behaviors/harmful_behaviors_pair.csv')[:args.n_behaviors]
 
     asr_matrix = np.zeros((len(harmful_behaviors_df), 6))
     for i_behavior in range(len(harmful_behaviors_df)):
-    # for i_behavior in [7, 17, 28]:  
+    # for i_behavior in [42]:  
         goal, target_str = harmful_behaviors_df['goal'][i_behavior], harmful_behaviors_df['target'][i_behavior]
         print(f'{i_behavior}: {goal}')
         
@@ -135,7 +135,7 @@ if __name__ == '__main__':
         default = "claude-2.0",
         help = "Name of target model.",
         choices=["claude-instant-1.2", "claude-2.0", "claude-2.1", "claude-3-haiku-20240307", 
-                 "claude-3-sonnet-20240229", "claude-3-opus-20240229"]
+                 "claude-3-sonnet-20240229", "claude-3-opus-20240229", "claude-3-5-sonnet-20240620"]
     )
     parser.add_argument(
         "--target-max-n-tokens",
@@ -182,7 +182,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--system-prompt', type=str, default=None, help='Override the default system prompt')
     parser.add_argument('--user-prompt', type=str, default=None, help='Override the default user prompt')
-    parser.add_argument('--only-system-plus-assistant', action=argparse.BooleanOptionalAction, help='Whether to compute only system+assistant.')
+    parser.add_argument('--only-system-plus-assistant', action=argparse.BooleanOptionalAction, help='Whether to compute only system+user+assistant (where system or user can be empty depending on the settings above).')
     
     parser.add_argument('--verbose', action=argparse.BooleanOptionalAction)
     parser.add_argument('--debug', action=argparse.BooleanOptionalAction)

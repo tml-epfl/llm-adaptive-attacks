@@ -61,7 +61,7 @@ class Claude:
 def main(args):
     targetLM = Claude(args.target_model)
 
-    harmful_behaviors_df = pd.read_csv('../harmful_behaviors/harmful_behaviors_pair.csv')[:args.n_behaviors]
+    harmful_behaviors_df = pd.read_csv('harmful_behaviors/harmful_behaviors_pair.csv')[:args.n_behaviors]
 
     asr_matrix = np.zeros((len(harmful_behaviors_df), 2))
     for i_behavior in range(len(harmful_behaviors_df)):
@@ -119,7 +119,7 @@ if __name__ == '__main__':
         default = "claude-2.0",
         help = "Name of target model.",
         choices=["claude-instant-1.2", "claude-2.0", "claude-2.1", "claude-3-haiku-20240307", 
-                 "claude-3-sonnet-20240229", "claude-3-opus-20240229"]
+                 "claude-3-sonnet-20240229", "claude-3-opus-20240229", "claude-3-5-sonnet-20240620"]
     )
     parser.add_argument(
         "--target-max-n-tokens",
