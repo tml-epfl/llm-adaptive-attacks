@@ -41,12 +41,12 @@ For experiments on GPT and Claude models, make sure you have the API key stored 
 export OPENAI_API_KEY=[YOUR_API_KEY_HERE]
 export ANTHROPIC_API_KEY=[YOUR_API_KEY_HERE]
 ```
-Similarly, some HuggingFace models, like Llama-2-Chat, require an API key, which can be set in `HF_TOKEN`.
+Similarly, some Hugging Face models, like Llama-2-Chat, require an API key, which can be set in `HF_TOKEN`.
 
 
 ## Run experiments
 All experiments used in the paper are collected in the bash files in the `experiments` folder. There are 3 main files:
-- `main.py`: runs random search on all models with logprobs (HuggingFace and GPT models),
+- `main.py`: runs random search on all models with logprobs (Hugging Face and GPT models),
 - `main_claude_transfer.py`: runs a transfer attack on Claude models with a single adversarial suffix obtained on GPT-4,
 - `main_claude_prefilling.py`: runs a prefilling attack on Claude models.
 
